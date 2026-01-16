@@ -56,30 +56,53 @@ function show(element) {
 function onStart() {
   // Render the current question
   // Display the quiz view,
-  hide(dom_start)
-  hide(dom_score)
+  hide(dom_start);
+  hide(dom_score);
   show(dom_quiz);
-
+  renderQuestion(runningQuestionIndex);
 }
 
 function renderQuestion(questionIndex) {
   // Render the current question on the quiz view
-
+  dom_question.textContent = questions[questionIndex].title;
+  dom_choiceA.textContent = questions[questionIndex].choiceA;
+  dom_choiceB.textContent = questions[questionIndex].choiceB;
+  dom_choiceC.textContent = questions[questionIndex].choiceC;
+  dom_choiceD.textContent = questions[questionIndex].choiceD;
 }
 
 function onPlayerSubmit(answer) {
   // Update the score, display the next question or the score view
+
+  if (answer == questions[runningQuestionIndex].correct) {
+    score ++;
+  }
+  runningQuestionIndex++;
+
+  if (runningQuestionIndex < questions.length) {
+    renderQuestion(runningQuestionIndex);
+  } else {
+    hide(dom_start);
+    show(dom_score);
+    hide(dom_quiz);
+    renderSCore();
+  }
 }
 
 function renderSCore() {
   // calculate the amount of question percent answered by the user
   // choose the image based on the scorePerCent
+  const scorePerCent = Math.round((score/questions.length)*100);
+  if(scorePerCent >= 80 && scorePerCent<=100) dom_score.textContent =` Your score: ${scorePerCent}% 🤩`;
+  else if(scorePerCent >= 60) dom_score.textContent = ` Your score: ${scorePerCent}% 😊`;
+  else if(scorePerCent >= 40) dom_score.textContent = ` Your score: ${scorePerCent}% 😐`;
+  else if(scorePerCent >= 20) dom_score.textContent = ` Your score: ${scorePerCent}% 😫`;
+  else dom_score.textContent = ` Your score: ${scorePerCent}% 😫`;
+
+
 }
 
 // FUNCTIONS ---------------------------------------------------------
 show(dom_start);
 hide(dom_quiz);
 hide(dom_score);
-
-
-

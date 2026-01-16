@@ -2,24 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Quiz</title>
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="quiz.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <link rel="stylesheet" href="./css/play.css"> -->
   </head>
   <body>
-    <div id="start" style="display: none">Start Quiz!</div>
+    <header id="root">
+      <!-- <nav>
+        <div class="logo">
+            <a href="#">
+                Quiz App
+            </a>
+        </div>
 
-    <div id="quiz">
-      <div id="question">QQQQQQQQ</div>
-
-      <div id="choices">
-        <div class="choice" id="A" onclick="checkAnswer('A')">AAAA</div>
-        <div class="choice" id="B" onclick="checkAnswer('B')">BBBB</div>
-        <div class="choice" id="C" onclick="checkAnswer('C')">CCCC</div>
-        <div class="choice" id="D" onclick="checkAnswer('C')">DD</div>
-      </div>
-
-      <div id="scoreContainer" style="display: none"></div>
+        <ul>
+          <li><a href="" id="edit" class="btn">Edit Quiz</a></li>
+          <li><a href="./view/play/play.html" id="play" class="btn">Play</a></li>
+        </ul>
+      </nav> -->
+    </header>
+    <div class="imgContainer">
+      <img
+        src="https://static.vecteezy.com/system/resources/thumbnails/045/021/458/small/cartoon-doodle-font-quiz-png.png"
+        alt="quiz"
+      />
     </div>
+    <script type="module" src="nav.js"></script>
   </body>
 </html>
